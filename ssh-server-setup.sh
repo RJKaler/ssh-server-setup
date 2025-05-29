@@ -1,14 +1,15 @@
-#!/bin/bash -e
+!/bin/bash -e
 
 #Install basic open-ssh server package
 sudo apt-get install openssh-server -y || { echo "error" && exit 1; }
+
 echo "generating keys now ..."
 
-#Basic for loop to auto-agree to the defaults of ssh-keygen
-for item in ssh-keygen
-do
-yes "" | "$item" || { echo "error" && exit 1; }  #this is where the magic starts with the auto-agree  
-done
+#generate asymmetrical keys 
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N "" -q || { echo "error" && exit 1; }
 
 echo "Success!"
+
 exit 0
+~                                                                                                                                                             
+~     
