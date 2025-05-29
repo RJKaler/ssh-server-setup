@@ -1,4 +1,4 @@
-!/bin/bash -e
+#!/bin/bash -e 
 
 #Install basic open-ssh server package
 sudo apt-get install openssh-server -y || { echo "error" && exit 1; }
